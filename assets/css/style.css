@@ -3,11 +3,12 @@ body{
     text-align: center;
 }
 
-.newButton{
+.newButton, .search, #gif-search{
     margin: 5px;
     padding: 5px;
 }
 
 .newGifDiv{
-    display: inline;
+    display: inline-flex;
+    margin: 5px;
 }
