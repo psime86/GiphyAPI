@@ -16,14 +16,14 @@ function gifDisplay(){
     .then(function(response){
         console.log(response);
         // Remove GIFs from GIF div
-        $("#gifDiv").empty();
+        $(".gifDiv").empty();
 
         // For loop and variables for sizing, rating, still/animate, and adding HTLM
         for (var i = 0; i < response.data.length; i++){
-            var newGifDiv = $("<div calss='newGifDiv'>");
+            var newGifDiv = $("<div class='newGifDiv'>");
             var rating = response.data[i].rating;
             var ratingDiv = $("<p>").html("Rating: " + rating);
-            var gif = $("<img calss='gifImage'>");
+            var gif = $("<img class='gifImage'>");
             var still = response.data[i].images.fixed_height_still.url;
             var animate = response.data[i].images.fixed_height.url;
 
@@ -36,22 +36,22 @@ function gifDisplay(){
             // Attaching ratings after their GIF
             newGifDiv.append(ratingDiv);
             newGifDiv.prepend(gif);
-            $("#gifDiv").prepend(newGifDiv);
+            $(".gifDiv").prepend(newGifDiv);
         }
     })
 }
 
         // On click to animate GIFs
-        $("#gifDiv").on("click", ".gifImage", function(){
+        $(".gifDiv").on("click", ".gifImage", function(){
             var state = $(this).attr("data-state");
-
+            console.log(state)
             // If else animate/still
             if (state === "still"){
-                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("src", $(this).data("animate"));
                 $(this).attr("data-state", "animate");
             }
             else{
-                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("src", $(this).data("still"));
                 $(this).attr("data-state", "still");
             }
         })

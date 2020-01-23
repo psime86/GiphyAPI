@@ -1,0 +1,13 @@
+body{
+    width: 100%;
+    text-align: center;
+}
+
+.newButton{
+    margin: 5px;
+    padding: 5px;
+}
+
+.newGifDiv{
+    display: inline;
+}
