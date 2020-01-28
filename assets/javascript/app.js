@@ -26,6 +26,7 @@ function gifDisplay(){
             var gif = $("<img class='gifImage'>");
             var still = response.data[i].images.fixed_height_still.url;
             var animate = response.data[i].images.fixed_height.url;
+            console.log(animate);
 
             // Setting GIFs to still
             gif.attr("src", still);
